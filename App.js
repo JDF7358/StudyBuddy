@@ -33,6 +33,10 @@ class LoginScreen extends React.Component {
 		return (
       <View style={styles.container}>
         <Text>This is the 'Login' screen.</Text>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type here"
+        />
       </View>
     );
 	}
