@@ -9,7 +9,7 @@ class HomeScreen extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View>
+			<View style={styles.container}>
 				<Button
 					onPress={() => navigate('Login')}
 					title="Login"
@@ -30,7 +30,11 @@ class LoginScreen extends React.Component {
 		title: 'Login',
 	};
 	render() {
-		return <Text>This is the 'Login' screen.</Text>;
+		return (
+      <View style={styles.container}>
+        <Text>This is the 'Login' screen.</Text>
+      </View>
+    );
 	}
 }
 
@@ -39,7 +43,11 @@ class RegisterScreen extends React.Component {
 		title: 'Register',
 	};
 	render() {
-		return <Text>This is the 'Register' screen.</Text>;
+		return (
+      <View style={styles.container}>
+        <Text>This is the 'Register' screen.</Text>
+      </View>
+    );
 	}
 }
 
@@ -58,7 +66,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'green',
+		backgroundColor: 'white',
 		alignItems: 'center',
 		justifyContent: 'center'
 	}
