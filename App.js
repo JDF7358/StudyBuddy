@@ -141,17 +141,19 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 3,
-    margin: 'auto',
+    margin: 2,
     width: '100%',
   },
   textboxTop: {
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     borderBottomWidth: 0,
+    margin: 'auto',
   },
   textboxBottom: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
+    margin: 'auto',
   },
   header: {
     fontSize: 20,
