@@ -67,6 +67,7 @@ export default class RegisterScreen extends React.Component {
 		  onChangeText = {(text_pw) => this.setState({text_pw})}
 		  value = {this.state.text_pw}
 		  clearTextOnFocus = {true}
+		  secureTextEntry = {true}
 		/>
 		<TextInput
 		  style = {styles.textbox}
@@ -74,6 +75,7 @@ export default class RegisterScreen extends React.Component {
 		  onChangeText = {(text_repw) => this.setState({text_repw})}
 		  value = {this.state.text_repw}
 		  clearTextOnFocus = {true}
+		  secureTextEntry = {true}
 		/>
 		<Picker
 		  style = {{width: '80%'}}

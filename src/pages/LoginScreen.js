@@ -51,11 +51,14 @@ export default class LoginScreen extends React.Component {
               onChangeText={(text_password) => this.setState({text_password})}
               value={this.state.text_password}
               clearTextOnFocus = {true}
+              secureTextEntry = {true}
             />
             <Button
-            	title="Login"
-				onPress={this.loggingIn}
+              onPress={() => navigate('Login')}
+              title="Login"
             />
+            <Text style={styles.body}
+              onPress={this.loggingIn}>Forgot Password?</Text>
           </View>
         );
     }
@@ -90,5 +93,6 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 20,
+    padding: 15,
   },
 });
