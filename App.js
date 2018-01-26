@@ -59,16 +59,44 @@ class LoginScreen extends React.Component {
 }
 
 class RegisterScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Register',
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>This is the 'Register' screen.</Text>
+	static navigationOptions = {
+		title: 'Register',
+	};
+	constructor(props) {
+		super(props);
+		this.state = {text: ''};
+	}
+	render() {
+		return (
+      <View style = {{backgroundColor: 'white', padding: 20}}>
+	    <TextInput
+		  style = {{height: 50, fontSize: 30}}
+		  placeholder = "First Name"
+		  onChangeText = {(text) => this.setState({text})}
+		/>
+		<TextInput
+		  style = {{height: 50, fontSize: 30}}
+		  placeholder = "Last Name"
+		  onChangeText = {(text) => this.setState({text})}
+		/>
+		<TextInput
+		  style = {{height: 50, fontSize: 30}}
+		  placeholder = "GT Email Address"
+		  onChangeText = {(text) => this.setState({text})}
+		/>
+		<TextInput
+		  style = {{height: 50, fontSize: 30}}
+		  placeholder = "Year"
+		  onChangeText = {(text) => this.setState({text})}
+		/>
+		<TextInput
+		  style = {{height: 50, fontSize: 30}}
+		  placeholder = "Major"
+		  onChangeText = {(text) => this.setState({text})}
+		/>
       </View>
     );
-  }
+	}
 }
 
 export const StudyBuddy = StackNavigator({
