@@ -1,6 +1,10 @@
 import React from 'react';
+import Expo, { SQLite } from 'expo';
 import { AppRegistry, StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
+const db = SQLite.openDatabase('db.db');
+const users_table = 'users'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -72,6 +76,13 @@ export const StudyBuddy = StackNavigator({
 export default class App extends React.Component {
   render() {
     return <StudyBuddy />;
+  }
+
+  componentDidMount() {
+    db.transaction(tx => {
+      tx.executeSql('create table if not exists ? (id integer primary key not null, '
+        + 'firstName text, lastName text, password text, username text);', [users_table]);
+    })
   }
 }
 
