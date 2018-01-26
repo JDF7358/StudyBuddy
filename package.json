@@ -5,7 +5,10 @@
     "expo": "^24.0.0",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
+<<<<<<< HEAD
     "react-native-vector-icons": "^4.5.0",
+=======
+>>>>>>> 67cbbfdb89c019db49a6423c90b8273f9a3597fd
     "react-navigation": "^1.0.0-beta.27"
   }
 }
