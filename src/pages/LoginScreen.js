@@ -54,11 +54,11 @@ export default class LoginScreen extends React.Component {
               secureTextEntry = {true}
             />
             <Button
-              onPress={() => navigate('Login')}
+              onPress={this.loggingIn}
               title="Login"
             />
             <Text style={styles.body}
-              onPress={this.loggingIn}>Forgot Password?</Text>
+              onPress={() => console.log('Forgot Password')}>Forgot Password?</Text>
           </View>
         );
     }
