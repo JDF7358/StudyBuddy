@@ -68,31 +68,41 @@ class RegisterScreen extends React.Component {
 	}
 	render() {
 		return (
-      <View style = {{backgroundColor: 'white', padding: 20}}>
+      <View style = {styles.container}>
 	    <TextInput
-		  style = {{height: 50, fontSize: 30}}
+		  style = {styles.textbox}
 		  placeholder = "First Name"
 		  onChangeText = {(text) => this.setState({text})}
+		  value = {this.state.text}
+		  clearTextOnFocus = {true}
 		/>
 		<TextInput
-		  style = {{height: 50, fontSize: 30}}
+		  style = {styles.textbox}
 		  placeholder = "Last Name"
 		  onChangeText = {(text) => this.setState({text})}
+		  value = {this.state.text}
+		  clearTextOnFocus = {true}
 		/>
 		<TextInput
-		  style = {{height: 50, fontSize: 30}}
+		  style = {styles.textbox}
 		  placeholder = "GT Email Address"
 		  onChangeText = {(text) => this.setState({text})}
+		  value = {this.state.text}
+		  clearTextOnFocus = {true}
 		/>
 		<TextInput
-		  style = {{height: 50, fontSize: 30}}
-		  placeholder = "Year"
+		  style = {styles.textbox}
+		  placeholder = "Classification"
 		  onChangeText = {(text) => this.setState({text})}
+		  value = {this.state.text}
+		  clearTextOnFocus = {true}
 		/>
 		<TextInput
-		  style = {{height: 50, fontSize: 30}}
+		  style = {styles.textbox}
 		  placeholder = "Major"
 		  onChangeText = {(text) => this.setState({text})}
+		  value = {this.state.text}
+		  clearTextOnFocus = {true}
 		/>
       </View>
     );
