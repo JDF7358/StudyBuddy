@@ -5,7 +5,7 @@ class Database {
 	constructor(name) {
 		this.db = SQLite.openDatabase(name);
     // TEMPORARY: drop users table before creating.
-    this.db.transaxtion(tx => {
+    this.db.transaction(tx => {
       tx.executeSql('drop table ?', [this.users_table]);
     });
     this.db.transaction(tx => {
