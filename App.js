@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, Text, View, Button } from 'react-native';
+import { AppRegistry, StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
@@ -19,7 +19,7 @@ class HomeScreen extends React.Component {
 					title="Register"
 				/>
 			</View>
-		);	
+		);
 	}
 }
 
@@ -45,7 +45,11 @@ class RegisterScreen extends React.Component {
 	render() {
 		return (
       <View style={styles.container}>
-        <Text>This is the 'Register' screen.</Text>
+      <Text>This is the 'Register' screen.</Text>
+      <TextInput
+        style={{height: 40}}
+        placeholder="Type here"
+      />
       </View>
     );
 	}
