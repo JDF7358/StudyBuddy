@@ -34,25 +34,32 @@ class LoginScreen extends React.Component {
   
   constructor(props) {
         super(props);
-        this.state = { text: ''};
+        this.state = { text_username: '', text_password: ''};
     }
 
     render() {
+    	const { navigate } = this.props.navigation;
         return (
           <View style={styles.container}>
             <Text style={styles.header}>Welcome Back!</Text>
             <TextInput
               placeholder = {'Username'}
               style={[styles.textbox, styles.textboxTop]}
-              onChangeText={(text) => this.setState({text})}
-              value={this.state.text}
-              clearTextOnFocus = {true}/>
+              onChangeText={(text_username) => this.setState({text_username})}
+              value={this.state.text_username}
+              clearTextOnFocus = {true}
+            />
             <TextInput
               placeholder = {'Password'}
               style={[styles.textbox, styles.textboxBottom]}
-              onChangeText={(text) => this.setState({text})}
-              value={this.state.text}
-              clearTextOnFocus = {true}/>
+              onChangeText={(text_password) => this.setState({text_password})}
+              value={this.state.text_password}
+              clearTextOnFocus = {true}
+            />
+            <Button
+            	onPress={() => navigate('Login')}
+            	title="Login"
+            />
           </View>
         );
     }
