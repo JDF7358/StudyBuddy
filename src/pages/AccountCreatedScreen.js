@@ -4,28 +4,25 @@ import { AppRegistry, StyleSheet, Text, View, Button, Picker, TextInput, Keyboar
 import { StackNavigator } from 'react-navigation';
 import { Auth } from '../model/Auth.js';
 
-export default class HomeScreen extends React.Component {
+export default class AccountCreatedScreen extends React.Component {
   static navigationOptions = {
-	header: null
+    header: null
   };
   
   render() {
 	const { navigate } = this.props.navigation;
 	return (
 	  <View style={styles.container}>
-		<Text style = {styles.SBTitle}>
-		  StudyBuddy
-		</Text>
 		<Text style = {styles.header}>
-		  Georgia Tech
+		  Your StudyBuddy account is now activated!
+		  Press the button below to set up your new
+		  profile.
 		</Text>
 		<Button
-		  onPress={() => navigate('Login')}
-		  title="Login" />
-		<Button
-		  onPress={() => navigate('Register')}
-		  title="Register" />
-		</View>
+		  onPress={() => navigate('MyProfile')}
+		  title="Go to My Profile"
+		/>
+	  </View>
 	);  
   }
 }
@@ -59,9 +56,11 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 20,
+	alignItems: 'center',
+	justifyContent: 'center',
   },
   SBTitle: {
 	fontSize: 40,
 	fontWeight: 'bold',
   }
-});
+}); 

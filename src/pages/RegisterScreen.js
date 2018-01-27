@@ -5,40 +5,41 @@ import { StackNavigator } from 'react-navigation';
 import { Auth } from '../model/Auth.js';
 
 export default class RegisterScreen extends React.Component {
-	static navigationOptions = {
-		title: 'Register',
+  static navigationOptions = {
+	title: 'Register',
+  };
+	
+  constructor() {
+	super();
+	this.state = {
+      text_fn: '',
+	  text_ln: '',
+	  text_gtea: '',
+	  text_pw: '',
+	  text_repw: '',
+	  year_value: '',
+	  major_value: ''
 	};
-	constructor() {
-		super();
-		this.state = {
-			text_fn: '',
-			text_ln: '',
-			text_gtea: '',
-			text_pw: '',
-			text_repw: '',
-			year_value: '',
-			major_value: ''
-		};
-	}
+  }
 	
-	creAcc = () => {
-		if ((this.state.text_fn == "")
-			|| (this.state.text_ln == "")
-			|| (this.state.text_gtea == "")
-			|| (this.state.text_pw == "")
-			|| (this.state.text_repw == "")
-			|| (this.state.year_value == "")
-			|| (this.state.major_value == "")) {
-			alert("Please fill in the missing sections.");
-		} else {
-			const { navigate } = this.props.navigation;
-			navigate('AccountCreated');
-		}
+  creAcc = () => {
+	if ((this.state.text_fn == "")
+	  || (this.state.text_ln == "")
+	  || (this.state.text_gtea == "")
+	  || (this.state.text_pw == "")
+	  || (this.state.text_repw == "")
+	  || (this.state.year_value == "")
+	  || (this.state.major_value == "")) {
+		alert("Please fill in the missing sections.");
+	} else {
+	  const { navigate } = this.props.navigation;
+	  navigate('AccountCreated');
 	}
+  }
 	
-	render() {
-		const { navigate } = this.props.navigation;
-		return (
+  render() {
+	const { navigate } = this.props.navigation;
+	return (
       <View style = {styles.container}>
 	    <TextInput
 		  style = {styles.textbox}
@@ -105,7 +106,7 @@ export default class RegisterScreen extends React.Component {
 		/>
       </View>
     );
-	}
+  }
 }
 
 const styles = StyleSheet.create({

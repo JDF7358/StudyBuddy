@@ -5,63 +5,64 @@ import { StackNavigator } from 'react-navigation';
 import { Auth } from '../model/Auth.js';
 
 export default class LoginScreen extends React.Component {
-	static navigationOptions = {
-		title: 'Login',
-	};
+  static navigationOptions = {
+	title: 'Login',
+  };
   
-	constructor() {
-        super();
-        this.state = {
-			text_username: '',
-			text_password: ''
-		};
-    }
+  constructor() {
+	super();
+    this.state = {
+      text_username: '',
+      text_password: ''
+	};
+  }
 
-	loggingIn = () => {
-		if ((this.state.text_username == "")
-			&& (this.state.text_password == "")) {
-			alert("Please fill in your username and password.");
-		} else if (this.state.text_username == ""
-			&& (this.state.text_password != "")) {
-			alert("Please fill in your username.");
-		} else if ((this.state.text_username != "")
-			&& (this.state.text_password == "")) {
-			alert("Please fill in your password.");
-		} else {	
-			const { navigate } = this.props.navigation;
-			navigate('MyMatches');
-		}
+  loggingIn = () => {
+	if ((this.state.text_username == "")
+	  && (this.state.text_password == "")) {
+		alert("Please fill in your username and password.");
+	} else if ((this.state.text_username == "")
+	  && (this.state.text_password != "")) {
+		alert("Please fill in your username.");
+	} else if ((this.state.text_username != "")
+	  && (this.state.text_password == "")) {
+		alert("Please fill in your password.");
+	} else {	
+	  const { navigate } = this.props.navigation;
+      navigate('MyMatches');
 	}
+  }
 	
-    render() {
-    	const { navigate } = this.props.navigation;
-        return (
-          <View style={styles.container}>
-            <Text style={styles.header}>Welcome Back!</Text>
-            <TextInput
-              placeholder = {'Username'}
-              style={[styles.textbox, styles.textboxTop]}
-              onChangeText={(text_username) => this.setState({text_username})}
-              value={this.state.text_username}
-              clearTextOnFocus = {true}
-            />
-            <TextInput
-              placeholder = {'Password'}
-              style={[styles.textbox, styles.textboxBottom]}
-              onChangeText={(text_password) => this.setState({text_password})}
-              value={this.state.text_password}
-              clearTextOnFocus = {true}
-              secureTextEntry = {true}
-            />
-            <Button
-              onPress={this.loggingIn}
-              title="Login"
-            />
-            <Text style={styles.body}
-              onPress={() => console.log('Forgot Password')}>Forgot Password?</Text>
-          </View>
-        );
-    }
+  render() {
+   	const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.header}>Welcome Back!</Text>
+        <TextInput
+          placeholder = {'Username'}
+          style={[styles.textbox, styles.textboxTop]}
+          onChangeText={(text_username) => this.setState({text_username})}
+          value={this.state.text_username}
+          clearTextOnFocus = {true}
+        />
+        <TextInput
+          placeholder = {'Password'}
+          style={[styles.textbox, styles.textboxBottom]}
+          onChangeText={(text_password) => this.setState({text_password})}
+          value={this.state.text_password}
+          clearTextOnFocus = {true}
+          secureTextEntry = {true}
+        />
+        <Button
+          onPress={this.loggingIn}
+          title="Login"
+        />
+        <Text style={styles.body}
+          onPress={() => console.log('Forgot Password')}>Forgot Password?
+		</Text>
+        </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
