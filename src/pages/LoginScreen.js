@@ -1,74 +1,86 @@
 import React from 'react';
-import Expo, { SQLite } from 'expo';
-import { AppRegistry, StyleSheet, Text, View, Button, Picker, TextInput, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, Button, TextInput } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Auth } from '../model/Auth.js';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { AuthObject } from '../model/Auth.js';
+import t from 'tcomb-form-native';
+
+
+const Form = t.form.Form;
+
+const Email = t.subtype(t.Str, (email) => {
+  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return reg.test(email);
+});
+
+const options = {
+  fields: {
+    email: {
+      error: 'Please enter a valid email address.',
+      autoCapitalize: 'none',
+      autoCorrect: false,
+    },
+    password: {
+      password: true,
+      secureTextEntry: true,
+      autoCapitalize: 'none',
+      autoCorrect: false,
+      error: 'Please enter your password.',
+    },
+  },
+  auto: 'placeholders',
+};
+
+const Login = t.struct({
+  email: Email,
+  password: t.String,
+});
 
 export default class LoginScreen extends React.Component {
 	static navigationOptions = {
 		title: 'Login',
 	};
-  
-	constructor() {
-        super();
-        this.state = {
-			text_username: '',
-			text_password: ''
-		};
-    }
-
-	loggingIn = () => {
-		if ((this.state.text_username == "")
-			&& (this.state.text_password == "")) {
-			alert("Please fill in your username and password.");
-		} else if (this.state.text_username == ""
-			&& (this.state.text_password != "")) {
-			alert("Please fill in your username.");
-		} else if ((this.state.text_username != "")
-			&& (this.state.text_password == "")) {
-			alert("Please fill in your password.");
-		} else {	
-			const { navigate } = this.props.navigation;
-			navigate('MyMatches');
-		}
-	}
 	
-    render() {
-    	const { navigate } = this.props.navigation;
-        return (
-          <View style={styles.container}>
-            <Text style={styles.header}>Welcome Back!</Text>
-            <TextInput
-              placeholder = {'Username'}
-              style={[styles.textbox, styles.textboxTop]}
-              onChangeText={(text_username) => this.setState({text_username})}
-              value={this.state.text_username}
-              clearTextOnFocus = {true}
-            />
-            <TextInput
-              placeholder = {'Password'}
-              style={[styles.textbox, styles.textboxBottom]}
-              onChangeText={(text_password) => this.setState({text_password})}
-              value={this.state.text_password}
-              clearTextOnFocus = {true}
-              secureTextEntry = {true}
-            />
-            <Button
-              onPress={this.loggingIn}
+  render() {
+  	const { navigate } = this.props.navigation;
+    return (
+      <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.header}>Welcome Back!</Text>
+        <Form
+          ref = {c => {this._login = c;}}
+          type = {Login}
+          options = {options}
+        />
+        <Button
               title="Login"
-            />
-            <Text style={styles.body}
-              onPress={() => console.log('Forgot Password')}>Forgot Password?</Text>
-          </View>
-        );
+          onPress = {this.authenticate}
+        />
+      </KeyboardAwareScrollView>
+    );
+  }
+
+  authenticate = async () => {
+    const { navigate } = this.props.navigation;
+    const value = this._login.getValue();
+    if (value) {
+    user = await AuthObject.getUser(value.email);
+      if (user) {
+        if (value.password == user.password) {
+          navigate('LoggedIn', {user: user});
+        } else {
+          alert("Incorrect password.");
+        }
+      } else {
+        alert("There is no user associated with that email address.");
+      }
     }
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    alignItems: 'center',
     justifyContent: 'center',
     padding: '5%',
   },
@@ -79,6 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     margin: 2,
     width: '100%',
+    padding: 2,
   },
   textboxTop: {
     borderBottomLeftRadius: 0,

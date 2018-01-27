@@ -4,11 +4,13 @@ import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/pages/HomeScreen.js'
 import LoginScreen from './src/pages/LoginScreen.js';
 import RegisterScreen from './src/pages/RegisterScreen.js';
+import LoggedIn from './src/pages/LoggedIn.js';
 
 export const StudyBuddy = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   Register: { screen: RegisterScreen },
+  LoggedIn: { screen: LoggedIn },
 });
 
 export default class App extends React.Component {
