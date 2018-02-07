@@ -6,12 +6,19 @@ import { Auth } from '../model/Auth.js';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'StudyBuddy',
+    header: null
   };
+  
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+	    <Text style = {styles.SBTitle}>
+		  StudyBuddy
+		</Text>
+		<Text style = {styles.header}>
+		  Georgia Tech
+		</Text>
         <Button
           onPress={() => navigate('Login')}
           title="Login" />
