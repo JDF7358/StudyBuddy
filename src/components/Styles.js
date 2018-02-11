@@ -1,8 +1,60 @@
 import React from 'react';
-import { AppRegistry, StyleSheet, Text, View, Button, Image, TouchableOpacity, Picker, TextInput, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const UPPstyles = StyleSheet.create({
-  container: {
+module.exports = StyleSheet.create({
+	
+  HScontainer: {					// HomeScreen
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '5%',
+  },
+  SBtitle: {
+	fontSize: 40,
+	fontWeight: 'bold',
+  },
+  HSheader: {
+    fontSize: 20,
+  },
+  
+  
+  LIcontainer: {					// LoggedIn
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '5%',
+  },
+  
+  
+  LScontainer: {					// LoginScreen
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    padding: '5%',
+  },
+  LSheader: {
+    fontSize: 20,
+    padding: 15,
+  },
+  
+  
+  PScontainer: {					// ProfileScreen
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  
+  
+  RScontainer: {					// RegisterScreen
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    padding: '5%',
+  },
+  
+  
+  UPPCcontainer: {					// UserProfilePageCmp
 	flex: 1,
 	backgroundColor: '#000',
   },
@@ -19,7 +71,7 @@ const UPPstyles = StyleSheet.create({
     flex: 1,
 	resizeMode: 'cover',
   },
-  header: {
+  UPPCheader: {
 	  flex: 1,
 	  alignItems: 'center',
 	  justifyContent: 'center',
@@ -52,15 +104,17 @@ const UPPstyles = StyleSheet.create({
 	  color: '#fff',
 	  fontWeight: '300',
   },
-  otherH: {
+  bio: {
 	  marginTop: 20,
 	  fontSize: 16,
 	  color: '#fff',
 	  fontWeight: 'bold',
   },
-  otherT: {
+  cic: {
 	  fontSize: 16,
 	  color: '#fff',
 	  fontWeight: 'normal',
   }
+  
+  
 });

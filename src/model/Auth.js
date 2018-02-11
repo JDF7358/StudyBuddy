@@ -28,8 +28,7 @@ export const User = t.struct({
   password: t.String,
   passwordAgain: t.String,
   major: Majors,
-  year: Years,
-  bio: t.String
+  year: Years
 });
 
 class Auth {

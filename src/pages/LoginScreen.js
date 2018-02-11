@@ -5,6 +5,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { AuthObject } from '../model/Auth.js';
 import t from 'tcomb-form-native';
 
+import Styles from '../components/Styles.js';
 
 const Form = t.form.Form;
 
@@ -44,8 +45,8 @@ export default class LoginScreen extends React.Component {
   render() {
   	const { navigate } = this.props.navigation;
     return (
-      <KeyboardAwareScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.header}>Welcome Back!</Text>
+      <KeyboardAwareScrollView contentContainerStyle={Styles.LScontainer}>
+        <Text style={Styles.LSheader}>Welcome Back!</Text>
         <Form
           ref = {c => {this._login = c;}}
           type = {Login}
@@ -76,36 +77,3 @@ export default class LoginScreen extends React.Component {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    padding: '5%',
-  },
-  textbox: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 3,
-    margin: 2,
-    width: '100%',
-    padding: 2,
-  },
-  textboxTop: {
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderBottomWidth: 0,
-    margin: 'auto',
-  },
-  textboxBottom: {
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-    margin: 'auto',
-  },
-  header: {
-    fontSize: 20,
-    padding: 15,
-  },
-});

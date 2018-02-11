@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View, Image, TouchableOpacity, Picker } from 'react-native';
 
+import Styles from '../components/Styles.js';
 import UserProfilePageCmp from '../components/UserProfilePageCmp.js';
 
 export default class ProfileScreen extends React.Component {
@@ -15,17 +16,10 @@ export default class ProfileScreen extends React.Component {
   
   render() {
 	return (
-	  <View style = {styles.container}>
-	    <UserProfile />
+	  <View style = {Styles.PScontainer}>
+	    <UserProfilePageCmp />
 	  </View>
 	);  
   }
   
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-  }
-});

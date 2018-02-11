@@ -4,6 +4,8 @@ import { AppRegistry, StyleSheet, Text, View, Button, Picker, TextInput, Keyboar
 import { StackNavigator } from 'react-navigation';
 import { Auth } from '../model/Auth.js';
 
+import Styles from '../components/Styles.js';
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -12,11 +14,11 @@ export default class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-	    <Text style = {styles.SBTitle}>
+      <View style={Styles.HScontainer}>
+	    <Text style = {Styles.SBtitle}>
 		  StudyBuddy
 		</Text>
-		<Text style = {styles.header}>
+		<Text style = {Styles.HSheader}>
 		  Georgia Tech
 		</Text>
         <Button
@@ -29,35 +31,3 @@ export default class HomeScreen extends React.Component {
     );  
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '5%',
-  },
-  textbox: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 3,
-    margin: 2,
-    width: '100%',
-  },
-  textboxTop: {
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderBottomWidth: 0,
-    margin: 'auto',
-  },
-  textboxBottom: {
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-    margin: 'auto',
-  },
-  header: {
-    fontSize: 20,
-  },
-});

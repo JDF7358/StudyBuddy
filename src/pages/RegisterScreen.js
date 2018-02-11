@@ -4,6 +4,7 @@ import { AuthObject, User } from '../model/Auth.js';
 import t from 'tcomb-form-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
+import Styles from '../components/Styles.js';
 
 const Form = t.form.Form;
 
@@ -54,7 +55,7 @@ export default class RegisterScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <KeyboardAwareScrollView contentContainerStyle = {styles.container}>
+      <KeyboardAwareScrollView contentContainerStyle = {Styles.RScontainer}>
       <Form
         ref = {c => {this._register = c;}}
         type = {User}
@@ -88,15 +89,3 @@ export default class RegisterScreen extends React.Component {
   }
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    padding: '5%',
-  },
-  header: {
-    fontSize: 20,
-  },
-});
