@@ -67,6 +67,14 @@ module.exports = StyleSheet.create({
 	width: '100%',
 	height: '100%',
   },
+
+  Mcontainer: {            //MatchesCmp
+    flex: 1,
+    height: 70,
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    backgroundColor: 'powderblue',
+  },
   profileBG: {
     flex: 1,
 	resizeMode: 'cover',

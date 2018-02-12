@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, Button, View } from 'react-native';
+import { StyleSheet, Text, Button, View, FlatList } from 'react-native';
 
 import Styles from '../components/Styles.js';
+import MatchesCmp from '../components/MatchesCmp.js';
 
 export default class LoggedIn extends React.Component {
   static navigationOptions = {
-    header: null
+    title: "My Matches",
   };
 
   render() {
@@ -15,16 +16,14 @@ export default class LoggedIn extends React.Component {
       <Text>Logged in as {user.name} {user.lastName} with email {user.email}!</Text>
 	  <Button
           onPress={() => navigate('MyProfile')}
-          title="Go to My Profile"
-		/>
-      <Button
+          title="Go to My Profile" />
+    <Button
         onPress={() => {
           const { goBack } = this.props.navigation;
           alert("Logged out!");
           goBack();
         }}
-        title="Logout"
-        />
+        title="Logout"/>
       </View>
     );
   }
