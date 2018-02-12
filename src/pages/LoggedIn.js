@@ -5,7 +5,7 @@ import Styles from '../components/Styles.js';
 
 export default class LoggedIn extends React.Component {
   static navigationOptions = {
-    title: 'Login',
+    header: null
   };
 
   render() {

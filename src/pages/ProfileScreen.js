@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, Button, View, Image, TouchableOpacity, Picker } from 'react-native';
 
 import Styles from '../components/Styles.js';
-import UserProfilePageCmp from '../components/UserProfilePageCmp.js';
+import ProfileCmp from '../components/ProfileCmp.js';
 
 export default class ProfileScreen extends React.Component {
   
@@ -12,7 +12,7 @@ export default class ProfileScreen extends React.Component {
 	  headerLeft: <TouchableOpacity onPress = {() => navigation.navigate('SidebarMenu')}
 	    style = {{margin: 10, padding: 10}}>
 		  <Text>Menu</Text></TouchableOpacity>,
-	  headerRight: <TouchableOpacity onPress = {() => navigation.navigate('EditMyProfile')}
+	  headerRight: <TouchableOpacity onPress = {() => navigation.navigate('EditProfile')}
 	    style = {{margin: 10, padding: 10}}>
 		  <Text>Edit</Text></TouchableOpacity>
   });
@@ -20,7 +20,7 @@ export default class ProfileScreen extends React.Component {
   render() {
 	return (
 	  <View style = {Styles.PScontainer}>
-	    <UserProfilePageCmp />
+	    <ProfileCmp />
 	  </View>
 	);  
   }

@@ -54,7 +54,7 @@ module.exports = StyleSheet.create({
   },
   
   
-  UPPCcontainer: {					// UserProfilePageCmp
+  PCcontainer: {					// ProfileCmp
 	flex: 1,
 	backgroundColor: '#000',
   },
@@ -71,7 +71,7 @@ module.exports = StyleSheet.create({
     flex: 1,
 	resizeMode: 'cover',
   },
-  UPPCheader: {
+  PCheader: {
 	  flex: 1,
 	  alignItems: 'center',
 	  justifyContent: 'center',

@@ -3,14 +3,14 @@ import { Stylesheet, Text, Button, View, Image, TouchableOpacity, Picker } from 
 
 import Styles from '../components/Styles.js';
 
-export default class UserProfilePageCmp extends React.Component {
+export default class ProfileCmp extends React.Component {
   render() {
 	return (
-		<View style = {Styles.UPPCcontainer}>
+		<View style = {Styles.PCcontainer}>
 		  <View style = {Styles.bgImgPos}>
 		    <Image style = {Styles.profileBG} source = {require('../img/headerbg.jpeg')} />
 		  </View>
-	      <View style = {Styles.UPPCheader}>
+	      <View style = {Styles.PCheader}>
 		    <View style = {Styles.profilepicWrap}>
 		      <Image style = {Styles.profilepic} source = {require('../img/defaultprofilepic.png')} />
 		    </View>
