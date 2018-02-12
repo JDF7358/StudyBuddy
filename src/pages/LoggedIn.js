@@ -8,6 +8,11 @@ export default class LoggedIn extends React.Component {
     header: null
   };
 
+  static navigationOptions = ({navigation}) => ({
+      headerTitleStyle: {textAlign: 'center', alignSelf: 'center'},
+      title: "My Matches"
+  });
+
   render() {
     user = this.props.navigation.state.params.user;
     const { navigate } = this.props.navigation;
