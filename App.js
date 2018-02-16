@@ -7,6 +7,7 @@ import RegisterScreen from './src/pages/RegisterScreen.js';
 import LoggedIn from './src/pages/LoggedIn.js';
 import ProfileScreen from './src/pages/ProfileScreen.js';
 import EditProfileScreen from './src/pages/EditProfileScreen.js';
+import OthersProfileScreen from './src/pages/OthersProfileScreen.js';
 
 export const StudyBuddy = StackNavigator({
   Home: { screen: HomeScreen },
@@ -14,6 +15,7 @@ export const StudyBuddy = StackNavigator({
   Register: { screen: RegisterScreen },
   LoggedIn: { screen: LoggedIn },
   MyProfile: { screen: ProfileScreen },
+  OtherProfile: { screen: OthersProfileScreen },
   EditProfile: { screen: EditProfileScreen }
 });
 

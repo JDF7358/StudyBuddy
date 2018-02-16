@@ -90,7 +90,7 @@ export default class LoggedIn extends React.Component {
 					rowIds[rowIds.length - 1].push(rowId);
 
 					//store data we care about for this row
-					dataBlob[rowId] = users[i];
+					dataBlob[rowId] = users[i]; ///////////////////////////////
 				}
 			}
 		}

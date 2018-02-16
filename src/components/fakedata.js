@@ -49,12 +49,12 @@ export default data = [
   },
   {
     "name": {
-      "first": "Adrianna",
+      "first": "Adriana",
       "last": "Amyette"
     },
     "login": {
       "email": "adrianna@example.com",
-      "password": "adrianna",
+      "password": "adriana",
     },
     "major": "Computer Science",
     "year": "Junior",
