@@ -3,6 +3,35 @@ import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
 	
+  tb: {								// EditProfileScreen
+	fontSize: 30,
+	padding: '2%',
+	color: 'white'
+  },
+  EPcontainer: {
+	flex: 1,
+	padding: '5%',
+	backgroundColor: 'rgba(0, 0, 0, 0.3)'
+  },
+  EPPPwrap: {
+	width: 120,
+    height: 120,
+	borderRadius: 100,
+	alignSelf: 'center',
+	justifyContent: 'center',
+	borderColor: 'rgba(0, 0, 0, 0.4)',
+	borderWidth: 16,
+  },
+  EPPP: {
+	width: 100,
+	height: 100,
+	alignSelf: 'center',
+	borderRadius: 200,
+	borderColor: '#fff',
+	borderWidth: 2,
+  },
+  
+  
   HScontainer: {					// HomeScreen
     flex: 1,
     backgroundColor: 'white',

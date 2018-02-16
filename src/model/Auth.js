@@ -1,13 +1,13 @@
 import { StudyBuddyDB } from './Database.js';
 import t from 'tcomb-form-native';
 
-const Majors = t.enums({
+export const Majors = t.enums({
   CS: 'Computer Science',
   CM: 'Computational Media',
   O: 'Other',
 });
 
-const Years = t.enums({
+export const Years = t.enums({
   0: 'Freshman',
   1: 'Sophomore',
   2: 'Junior',
@@ -28,7 +28,8 @@ export const User = t.struct({
   password: t.String,
   passwordAgain: t.String,
   major: Majors,
-  year: Years
+  year: Years,
+  bio: t.String
 });
 
 class Auth {
@@ -46,6 +47,14 @@ class Auth {
   createAccount(user) {
     StudyBuddyDB.addUser(user);
   }
+  
+  /**
+   * Takes in an old item from the user and the new data to update the user's data to the new data.
+   */
+  updateAccountItem(userItem, newData) {
+	StudyBuddyDB.updateUserItem(userItem, newData);
+  }
+  
 }
 
 export const AuthObject = new Auth();
