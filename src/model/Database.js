@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-/*
+
 import * as firebase from 'firebase';
 
 const config = {
@@ -11,7 +11,6 @@ const config = {
   messagingSenderId: "1037332241375"
 };
 firebase.initializeApp(config);
-*/
 
 class Database {
 

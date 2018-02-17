@@ -9,9 +9,9 @@ export default class ProfileScreen extends React.Component {
   static navigationOptions = ({navigation}) => ({
 	  headerTitleStyle: {textAlign: 'center', alignSelf: 'center'},
 	  title: "My Profile",
-	  headerLeft: <TouchableOpacity onPress = {() => navigation.navigate('SidebarMenu')}
+	  headerLeft: <TouchableOpacity onPress = {() => navigation.navigate('LoggedIn')}
 	    style = {{margin: 10, padding: 10}}>
-		  <Text>Menu</Text></TouchableOpacity>,
+		  <Text>My Matches</Text></TouchableOpacity>,
 	  headerRight: <TouchableOpacity onPress = {() => navigation.navigate('EditProfile')}
 	    style = {{margin: 10, padding: 10}}>
 		  <Text>Edit</Text></TouchableOpacity>

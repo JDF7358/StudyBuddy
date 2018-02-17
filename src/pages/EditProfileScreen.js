@@ -2,6 +2,7 @@ import React from 'react';
 import { Stylesheet, Text, TextInput, Button, View, Image, TouchableOpacity, Picker } from 'react-native';
 import { AuthObject, User, Majors, Years } from '../model/Auth.js';
 import t from 'tcomb-form-native';
+import CameraRollPicker from 'react-native-camera-roll-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import Styles from '../components/Styles.js';
@@ -51,6 +52,10 @@ export default class EditProfileScreen extends React.Component {
 		    <View style = {Styles.EPPPwrap}>
 		      <Image style = {Styles.EPPP} source = {require('../img/defaultprofilepic.png')} />
 			</View>
+			<Button
+			  title = "Choose Picture"
+			  onPress = {this.goToGallery}
+			/>
 		    <TextInput
 			  placeholder = "First Name"
 			  style = {Styles.tb}
@@ -79,7 +84,7 @@ export default class EditProfileScreen extends React.Component {
 			  options = {options}
 			/>
 			<Button
-			  title = "Save Changes"
+			  title = "Update"
 			  onPress = {this.saveChanges}
 			/>
 		  </View>
@@ -106,6 +111,11 @@ export default class EditProfileScreen extends React.Component {
 	  console.log(user);
 	  navigate('MyProfile');
     }
+  }
+  
+  goToGallery = async() => {
+	const { navigate } = this.props.navigation;
+	navigate('ChoosePicture');
   }
 
 }

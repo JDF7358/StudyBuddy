@@ -8,6 +8,7 @@ import LoggedIn from './src/pages/LoggedIn.js';
 import ProfileScreen from './src/pages/ProfileScreen.js';
 import EditProfileScreen from './src/pages/EditProfileScreen.js';
 import OthersProfileScreen from './src/pages/OthersProfileScreen.js';
+import GalleryCmp from './src/components/GalleryCmp.js';
 
 export const StudyBuddy = StackNavigator({
   Home: { screen: HomeScreen },
@@ -16,7 +17,8 @@ export const StudyBuddy = StackNavigator({
   LoggedIn: { screen: LoggedIn },
   MyProfile: { screen: ProfileScreen },
   OtherProfile: { screen: OthersProfileScreen },
-  EditProfile: { screen: EditProfileScreen }
+  EditProfile: { screen: EditProfileScreen },
+  ChoosePicture: { screen: GalleryCmp }
 });
 
 export default class App extends React.Component {

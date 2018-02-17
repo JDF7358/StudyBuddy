@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
-	
+
   tb: {								// EditProfileScreen
 	fontSize: 30,
 	padding: '2%',
