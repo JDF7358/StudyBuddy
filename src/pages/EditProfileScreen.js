@@ -103,11 +103,7 @@ export default class EditProfileScreen extends React.Component {
 	  user.bio = this.state.bio;
 	  user.major = value.major;
 	  user.year = value.year;
-	  AuthObject.updateAccountItem(user.name, this.state.fname);
-	  AuthObject.updateAccountItem(user.lastName, this.state.lname);
-	  AuthObject.updateAccountItem(user.bio, this.state.bio);
-	  AuthObject.updateAccountItem(user.major, value.major);
-	  AuthObject.updateAccountItem(user.year, value.year);
+	  AuthObject.updateUser(user.email, user);
 	  console.log(user);
 	  navigate('MyProfile');
     }

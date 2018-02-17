@@ -51,8 +51,8 @@ class Auth {
   /**
    * Takes in an old item from the user and the new data to update the user's data to the new data.
    */
-  updateAccountItem(userItem, newData) {
-	StudyBuddyDB.updateUserItem(userItem, newData);
+  updateUser(email, newUser) {
+	StudyBuddyDB.updateUser(email, newUser);
   }
   
 }

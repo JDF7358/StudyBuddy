@@ -36,8 +36,8 @@ class Database {
   /**
    * This method updates the user's data according to their changes.
    */
-  updateUserItem(key, data) {
-    AsyncStorage.setItem(key, data);
+  updateUser(email, newUser) {
+    AsyncStorage.setItem(email, JSON.stringify(newUser));
   }
   
 }
