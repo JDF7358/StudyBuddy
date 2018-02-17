@@ -29,7 +29,7 @@ export const User = t.struct({
   passwordAgain: t.String,
   major: Majors,
   year: Years,
-  bio: t.String
+  bio: t.maybe(t.String)
 });
 
 class Auth {
@@ -47,14 +47,14 @@ class Auth {
   createAccount(user) {
     StudyBuddyDB.addUser(user);
   }
-  
+
   /**
    * Takes in an old item from the user and the new data to update the user's data to the new data.
    */
-  updateAccountItem(userItem, newData) {
-	StudyBuddyDB.updateUserItem(userItem, newData);
+  updateUser(email, newUser) {
+	StudyBuddyDB.updateUser(email, newUser);
   }
-  
+
 }
 
 export const AuthObject = new Auth();
