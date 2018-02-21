@@ -1,7 +1,7 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from './src/pages/HomeScreen.js'
+import HomeScreen from './src/pages/HomeScreen.js';
 import LoginScreen from './src/pages/LoginScreen.js';
 import RegisterScreen from './src/pages/RegisterScreen.js';
 import LoggedIn from './src/pages/LoggedIn.js';

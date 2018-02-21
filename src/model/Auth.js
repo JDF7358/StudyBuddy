@@ -16,7 +16,7 @@ export const Years = t.enums({
 });
 
 const Email = t.subtype(t.Str, (email) => {
-  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return reg.test(email);
 });
 
@@ -37,7 +37,7 @@ class Auth {
    * Wrapper for the DB getUser class.
    */
   async getUser(email) {
-    user = await StudyBuddyDB.getUser(email);
+    let user = await StudyBuddyDB.getUser(email);
     return user;
   }
 
@@ -52,7 +52,7 @@ class Auth {
    * Takes in an old item from the user and the new data to update the user's data to the new data.
    */
   updateUser(email, newUser) {
-	StudyBuddyDB.updateUser(email, newUser);
+    StudyBuddyDB.updateUser(email, newUser);
   }
 
 }

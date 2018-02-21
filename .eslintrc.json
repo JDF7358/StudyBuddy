@@ -1,0 +1,53 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "globals": {
+        "alert": true
+    },
+    "extends": [
+        "eslint:recommended", "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                   "warn",
+                   "error"
+                ]
+            }
+        ],
+        "no-alert": "off"
+    }
+}

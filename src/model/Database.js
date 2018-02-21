@@ -3,12 +3,12 @@ import { AsyncStorage } from 'react-native';
 import * as firebase from 'firebase';
 
 const config = {
-  apiKey: "AIzaSyD3t41icczPZC8x7UEJ9ighhdGdQ0SxLqI",
-  authDomain: "studybuddy-gt.firebaseapp.com",
-  databaseURL: "https://studybuddy-gt.firebaseio.com",
-  projectID: "studybuddy-gt",
-  storageBucket: "studybuddy-gt.appspot.com",
-  messagingSenderId: "1037332241375"
+  apiKey: 'AIzaSyD3t41icczPZC8x7UEJ9ighhdGdQ0SxLqI',
+  authDomain: 'studybuddy-gt.firebaseapp.com',
+  databaseURL: 'https://studybuddy-gt.firebaseio.com',
+  projectID: 'studybuddy-gt',
+  storageBucket: 'studybuddy-gt.appspot.com',
+  messagingSenderId: '1037332241375'
 };
 firebase.initializeApp(config);
 
@@ -28,7 +28,7 @@ class Database {
    * Returns null if no user or multiple users were found.
    */
   async getUser(email) {
-    user = await AsyncStorage.getItem(email);
+    var user = await AsyncStorage.getItem(email);
     user = await JSON.parse(user) || null;
     return user;
   }
