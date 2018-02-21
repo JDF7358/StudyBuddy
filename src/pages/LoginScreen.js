@@ -1,16 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, Button, TextInput } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { Text, Button } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AuthObject } from '../model/Auth.js';
 import t from 'tcomb-form-native';
+import PropTypes from 'prop-types';
 
 import Styles from '../components/Styles.js';
 
 const Form = t.form.Form;
 
 const Email = t.subtype(t.Str, (email) => {
-  const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const reg = /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return reg.test(email);
 });
 
@@ -38,23 +39,26 @@ const Login = t.struct({
 });
 
 export default class LoginScreen extends React.Component {
-	static navigationOptions = {
-		title: 'Login',
-	};
-	
+  static navigationOptions = {
+    title: 'Login',
+  };
+
+  static propTypes = {
+    navigation: PropTypes.instanceOf(NavigationActions)
+  };
+  
   render() {
-  	const { navigate } = this.props.navigation;
     return (
       <KeyboardAwareScrollView contentContainerStyle={Styles.LScontainer}>
         <Text style={Styles.LSheader}>Welcome Back!</Text>
         <Form
-          ref = {c => {this._login = c;}}
-          type = {Login}
-          options = {options}
+          ref={c => { this._login = c; }}
+          type={Login}
+          options={options}
         />
         <Button
-              title="Login"
-          onPress = {this.authenticate}
+          title='Login'
+          onPress={this.authenticate}
         />
       </KeyboardAwareScrollView>
     );
@@ -64,15 +68,15 @@ export default class LoginScreen extends React.Component {
     const { navigate } = this.props.navigation;
     const value = this._login.getValue();
     if (value) {
-    user = await AuthObject.getUser(value.email);
+      let user = await AuthObject.getUser(value.email);
       if (user) {
         if (value.password == user.password) {
-          navigate('LoggedIn', {user: user});
+          navigate('LoggedIn', { user: user });
         } else {
-          alert("Incorrect password.");
+          alert('Incorrect password.');
         }
       } else {
-        alert("There is no user associated with that email address.");
+        alert('There is no user associated with that email address.');
       }
     }
   }

@@ -6,6 +6,7 @@
     "firebase": "^4.10.0",
     "jshint": "^2.9.5",
     "npm": "^4.6.1",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
     "react-native-camera-roll-picker": "^1.2.3",

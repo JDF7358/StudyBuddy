@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, Button } from 'react-native';
+import { Button } from 'react-native';
 import { AuthObject, User } from '../model/Auth.js';
 import t from 'tcomb-form-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import PropTypes from 'prop-types';
+import NavigationActions from 'react-navigation';
 
 import Styles from '../components/Styles.js';
 
@@ -48,24 +50,29 @@ export default class RegisterScreen extends React.Component {
     title: 'Register',
   };
 
+  static propTypes = {
+    navigation: PropTypes.instanceOf(NavigationActions)
+  }
+
   constructor(props) {
     super(props);
   }
   
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <KeyboardAwareScrollView contentContainerStyle = {Styles.RScontainer}>
-      <Form
-        ref = {c => {this._register = c;}}
-        type = {User}
-        options = {options}
-      />
+        <Form
+          ref = {c => {this._register = c;}}
+          type = {User}
+          options = {options}
+        />
     
-    <Button
-          title="Create Account"
-      onPress = {this.register}
-    />
+        < Button
+          title = 'Create Account'
+          onPress = {
+            this.register
+          }
+        />
       </KeyboardAwareScrollView>
     );
   }
@@ -77,13 +84,13 @@ export default class RegisterScreen extends React.Component {
       if (value.password == value.passwordAgain) {
         if (await AuthObject.getUser(value.email) == null) {
           AuthObject.createAccount(value);
-          alert("Account created!");
+          alert('Account created!');
           goBack();
         } else {
-          alert("An account with that email already exists.");
+          alert('An account with that email already exists.');
         }
       } else {
-        alert("Please make sure your passwords match.");
+        alert('Please make sure your passwords match.');
       }
     }
   }
