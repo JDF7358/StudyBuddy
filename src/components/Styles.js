@@ -1,38 +1,37 @@
-import React from 'react';
 import { StyleSheet } from 'react-native';
 
 module.exports = StyleSheet.create({
 
-  tb: {								// EditProfileScreen
-	fontSize: 30,
-	padding: '2%',
-	color: 'white'
+  tb: { // EditProfileScreen
+    fontSize: 30,
+    padding: '2%',
+    color: 'white'
   },
   EPcontainer: {
-	flex: 1,
-	padding: '5%',
-	backgroundColor: 'rgba(0, 0, 0, 0.3)'
+    flex: 1,
+    padding: '5%',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)'
   },
   EPPPwrap: {
-	width: 120,
+    width: 120,
     height: 120,
-	borderRadius: 100,
-	alignSelf: 'center',
-	justifyContent: 'center',
-	borderColor: 'rgba(0, 0, 0, 0.4)',
-	borderWidth: 16,
+    borderRadius: 100,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    borderColor: 'rgba(0, 0, 0, 0.4)',
+    borderWidth: 16,
   },
   EPPP: {
-	width: 100,
-	height: 100,
-	alignSelf: 'center',
-	borderRadius: 200,
-	borderColor: '#fff',
-	borderWidth: 2,
+    width: 100,
+    height: 100,
+    alignSelf: 'center',
+    borderRadius: 200,
+    borderColor: '#fff',
+    borderWidth: 2,
   },
-  
-  
-  HScontainer: {					// HomeScreen
+
+
+  HScontainer: { // HomeScreen
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
@@ -40,15 +39,15 @@ module.exports = StyleSheet.create({
     padding: '5%',
   },
   SBtitle: {
-	fontSize: 40,
-	fontWeight: 'bold',
+    fontSize: 40,
+    fontWeight: 'bold',
   },
   HSheader: {
     fontSize: 20,
   },
-  
-  
-  LIcontainer: {					// LoggedIn
+
+
+  LIcontainer: { // LoggedIn
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
@@ -56,9 +55,9 @@ module.exports = StyleSheet.create({
     padding: '5%',
     zIndex: 1,
   },
-  
-  
-  LScontainer: {					// LoginScreen
+
+
+  LScontainer: { // LoginScreen
     flex: 1,
     backgroundColor: 'white',
     justifyContent: 'center',
@@ -68,37 +67,37 @@ module.exports = StyleSheet.create({
     fontSize: 20,
     padding: 15,
   },
-  
-  
-  PScontainer: {					// ProfileScreen
+
+
+  PScontainer: { // ProfileScreen
     flex: 1,
     backgroundColor: '#000',
   },
-  
-  
-  RScontainer: {					// RegisterScreen
+
+
+  RScontainer: { // RegisterScreen
     flex: 1,
     backgroundColor: 'white',
     justifyContent: 'center',
     padding: '5%',
   },
-  
-  
-  PCcontainer: {					// ProfileCmp
-	flex: 1,
-	backgroundColor: '#000',
+
+
+  PCcontainer: { // ProfileCmp
+    flex: 1,
+    backgroundColor: '#000',
   },
   bgImgPos: {
     position: 'absolute',
-	top: 0,
-	left: 0,
-	right: 0,
-	bottom: 0,
-	width: '100%',
-	height: '100%',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
   },
 
-  Mcontainer: {            //MatchesCmp
+  Mcontainer: { //MatchesCmp
     flex: 1,
     height: 70,
     alignItems: 'stretch',
@@ -107,51 +106,51 @@ module.exports = StyleSheet.create({
   },
   profileBG: {
     flex: 1,
-	resizeMode: 'cover',
+    resizeMode: 'cover',
   },
   PCheader: {
-	  flex: 1,
-	  alignItems: 'center',
-	  justifyContent: 'center',
-	  padding: 20,
-	  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   profilepicWrap: {
-	  width: 180,
-	  height: 180,
-	  borderRadius: 100,
-	  borderColor: 'rgba(0, 0, 0, 0.4)',
-	  borderWidth: 16,
+    width: 180,
+    height: 180,
+    borderRadius: 100,
+    borderColor: 'rgba(0, 0, 0, 0.4)',
+    borderWidth: 16,
   },
   profilepic: {
-	  flex: 1,
-	  width: null,
-	  alignSelf: 'stretch',
-	  borderRadius: 100,
-	  borderColor: '#fff',
-	  borderWidth: 4,
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
+    borderRadius: 100,
+    borderColor: '#fff',
+    borderWidth: 4,
   },
   name: {
-	  marginTop: 10,
-	  fontSize: 30,
-	  color: '#fff',
-	  fontWeight: 'bold',
+    marginTop: 10,
+    fontSize: 30,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   major_year: {
-	  fontSize: 20,
-	  color: '#fff',
-	  fontWeight: '300',
+    fontSize: 20,
+    color: '#fff',
+    fontWeight: '300',
   },
   bio: {
-	  marginTop: 20,
-	  fontSize: 16,
-	  color: '#fff',
-	  fontWeight: 'bold',
+    marginTop: 20,
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   cic: {
-	  fontSize: 16,
-	  color: '#fff',
-	  fontWeight: 'normal',
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: 'normal',
   },
   SHcontainer: { //section header component
     flex: 1,
@@ -193,5 +192,5 @@ module.exports = StyleSheet.create({
     width: 40,
     borderRadius: 20,
   }
-  
+
 });
