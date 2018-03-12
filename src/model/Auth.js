@@ -54,7 +54,7 @@ class Auth {
   updateUser(email, newUser) {
     StudyBuddyDB.updateUser(email, newUser);
   }
-
+  
 }
 
 export const AuthObject = new Auth();

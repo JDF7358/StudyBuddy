@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, ListView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ListView, TouchableOpacity } from 'react-native';
 
 import fakedata from '../components/fakedata.js';
-import Row from '../components/Row.js';
 import Header from '../components/Header.js';
 import SectionHeader from '../components/SectionHeader.js';
 import Styles from '../components/Styles.js';
+import { AuthObject } from '../model/Auth.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,6 +19,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#8E8E8E',
   },
 });
+
+export const Row = (props) => (
+  <View>
+    <TouchableOpacity onPress={this.goToChat}>
+      <View style={Styles.Rcontainer}>
+        <TouchableOpacity onPress={this.goToOtherProf}>
+          <Image source={require('../img/defaultprofilepic.png')} style={Styles.Rphoto} />
+	      </TouchableOpacity>
+        <Text style={Styles.Rtext}>
+          {`${props.name.first} ${props.name.last}`}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+);
+
+export var other = null;
 
 export default class LoggedIn extends React.Component {
 
@@ -53,6 +70,18 @@ export default class LoggedIn extends React.Component {
     };
   }
 
+  goToChat = async() => {
+    const {navigate} = this.props.navigation;
+    navigate('Chat');
+  }
+
+  goToOtherProf = async() => {
+    const {navigate} = this.props.navigation;
+    const value = data.getValue();
+    other = await AuthObject.getUser(value.email);
+    navigate('OtherProfile');
+  }
+
   formatData(data) {
     //Sort alphabetically
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -67,10 +96,10 @@ export default class LoggedIn extends React.Component {
       //get character we're currently looking for
       const currentChar = alphabet[sectionId];
 
-      //get users whose first name starts with current letter
-      const users = data.filter((user) => user.name.first.toUpperCase().indexOf(currentChar) == 0);
+      //get users whose last name starts with current letter
+      const users = data.filter((user) => user.name.last.toUpperCase().indexOf(currentChar) == 0);
 
-      //if any users have first name starting w current letter then add new section
+      //if any users have last name starting w current letter then add new section
       if (users.length > 0) {
         //add section id to array so listview knows we've got a new section
         sectionIds.push(sectionId);

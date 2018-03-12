@@ -1,17 +1,5 @@
 import { AsyncStorage } from 'react-native';
 
-import * as firebase from 'firebase';
-
-const config = {
-  apiKey: 'AIzaSyD3t41icczPZC8x7UEJ9ighhdGdQ0SxLqI',
-  authDomain: 'studybuddy-gt.firebaseapp.com',
-  databaseURL: 'https://studybuddy-gt.firebaseio.com',
-  projectID: 'studybuddy-gt',
-  storageBucket: 'studybuddy-gt.appspot.com',
-  messagingSenderId: '1037332241375'
-};
-firebase.initializeApp(config);
-
 class Database {
 
   /**
@@ -32,7 +20,7 @@ class Database {
     user = await JSON.parse(user) || null;
     return user;
   }
-  
+
   /**
    * This method updates the user's data according to their changes.
    */

@@ -68,7 +68,7 @@ export default class LoginScreen extends React.Component {
     const { navigate } = this.props.navigation;
     const value = this._login.getValue();
     if (value) {
-      let user = await AuthObject.getUser(value.email);
+      user = await AuthObject.getUser(value.email);
       if (user) {
         if (value.password == user.password) {
           navigate('LoggedIn', { user: user });
