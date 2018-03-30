@@ -14,12 +14,12 @@ import GalleryCmp from './src/components/GalleryCmp.js';
 import * as firebase from 'firebase';
 
 const config = {
-  apiKey: "AIzaSyD3t41icczPZC8x7UEJ9ighhdGdQ0SxLqI",
-  authDomain: "studybuddy-gt.firebaseapp.com",
-  databaseURL: "https://studybuddy-gt.firebaseio.com",
-  projectId: "studybuddy-gt",
-  storageBucket: "studybuddy-gt.appspot.com",
-  messagingSenderId: "1037332241375"
+  apiKey: 'AIzaSyD3t41icczPZC8x7UEJ9ighhdGdQ0SxLqI',
+  authDomain: 'studybuddy-gt.firebaseapp.com',
+  databaseURL: 'https://studybuddy-gt.firebaseio.com',
+  projectId: 'studybuddy-gt',
+  storageBucket: 'studybuddy-gt.appspot.com',
+  messagingSenderId: '1037332241375'
 };
 firebase.initializeApp(config);
 

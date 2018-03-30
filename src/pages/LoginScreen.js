@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, Button } from 'react-native';
-import { NavigationActions } from 'react-navigation';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AuthObject } from '../model/Auth.js';
 import t from 'tcomb-form-native';
 import PropTypes from 'prop-types';
+import firebase from 'firebase';
 
 import Styles from '../components/Styles.js';
 
@@ -39,15 +39,39 @@ const Login = t.struct({
 });
 
 export default class LoginScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+    };
+  }
   static navigationOptions = {
     title: 'Login',
   };
 
+  componentDidMount() {
+    this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
+      this.setState({
+        loading: false
+      });
+      if (user) {
+        AuthObject.getUser(user.email).then((ourUser) => {
+          this.props.navigation.navigate('LoggedIn', {user: ourUser});
+        });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.authSubscription();
+  }
+
   static propTypes = {
-    navigation: PropTypes.instanceOf(NavigationActions)
+    navigation: PropTypes.object.isRequired,
   };
   
   render() {
+    if (this.state.loading) return null;
     return (
       <KeyboardAwareScrollView contentContainerStyle={Styles.LScontainer}>
         <Text style={Styles.LSheader}>Welcome Back!</Text>
@@ -65,19 +89,16 @@ export default class LoginScreen extends React.Component {
   }
 
   authenticate = async () => {
-    const { navigate } = this.props.navigation;
     const value = this._login.getValue();
     if (value) {
-      user = await AuthObject.getUser(value.email);
-      if (user) {
-        if (value.password == user.password) {
-          navigate('LoggedIn', { user: user });
-        } else {
-          alert('Incorrect password.');
-        }
-      } else {
-        alert('There is no user associated with that email address.');
-      }
+      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .catch((error) => {
+          if (error.code == 'auth/user-not-found') {
+            alert('There is no user associated with that email address.');
+          } else if (error.code == 'auth/wrong-password') {
+            alert('Incorrect password.');
+          }
+        });
     }
   }
 }
