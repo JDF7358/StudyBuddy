@@ -16,7 +16,11 @@ export default class ProfileScreen extends React.Component {
       style = {{margin: 10, padding: 10}}>
       <Text>Edit</Text></TouchableOpacity>
   });
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
   render() {
     return (
       <View style={Styles.PScontainer}>

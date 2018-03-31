@@ -3,10 +3,29 @@
   "private": true,
   "dependencies": {
     "expo": "^24.0.0",
-    "react": "16.0.0",
+    "firebase": "^4.12.1",
+    "jshint": "^2.9.5",
+    "npm": "^4.6.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
+    "react-native-camera-roll-picker": "^1.2.3",
     "react-native-elements": "^0.19.0",
+    "react-native-gifted-chat": "^0.4.3",
+    "react-native-image-crop-picker": "^0.19.3",
+    "react-native-keyboard-aware-scroll-view": "^0.4.3",
+    "react-native-photo-upload": "^1.2.0",
     "react-native-vector-icons": "^4.5.0",
-    "react-navigation": "^1.0.0-beta.27"
+    "react-navigation": "^1.0.0-beta.27",
+    "tcomb-form-native": "^0.6.11"
+  },
+  "jshintConfig": {
+    "esversion": 6
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react-native": "^3.2.1"
   }
 }
