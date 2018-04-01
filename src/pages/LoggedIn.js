@@ -41,10 +41,10 @@ export default class LoggedIn extends React.Component {
   static navigationOptions = ({navigation}) => ({
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
     title: 'My Matches',
-    headerLeft: <TouchableOpacity onPress={() => navigation.navigate('Home')}
+    headerLeft: <TouchableOpacity onPress={this.signOutUser}
       style={{ margin: 10, padding: 10 }}>
       <Text>Logout</Text></TouchableOpacity>,
-    headerRight: <TouchableOpacity onPress={this.signOutUser}
+    headerRight: <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}
       style={{ margin: 10, padding: 10 }}>
       <Text>My Profile</Text></TouchableOpacity>
   });
@@ -115,7 +115,7 @@ export default class LoggedIn extends React.Component {
 
   signOutUser = async() => {
     try {
-        user = await firebase.auth().signOut();
+        await firebase.auth().signOut();
         navigate('Home');
     } catch (error) {
         console.log(error);
