@@ -3,7 +3,6 @@ import { Text, Button } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AuthObject } from '../model/Auth.js';
 import t from 'tcomb-form-native';
-import PropTypes from 'prop-types';
 import firebase from 'firebase';
 
 import Styles from '../components/Styles.js';
