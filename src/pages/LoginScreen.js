@@ -64,6 +64,11 @@ export default class LoginScreen extends React.Component {
     const value = this._login.getValue();
     if (value) {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .then(
+          AuthObject.getUser(value.email).then((ourUser) => {
+            this.props.navigation.navigate('LoggedIn', {user: ourUser});
+          })
+        )
         .catch((error) => {
           if (error.code == 'auth/user-not-found') {
             alert('There is no user associated with that email address.');
