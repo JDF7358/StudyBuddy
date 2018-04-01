@@ -43,7 +43,7 @@ export default class LoggedIn extends React.Component {
     headerLeft: <TouchableOpacity onPress={() => navigation.navigate('Home')}
       style={{ margin: 10, padding: 10 }}>
       <Text>Logout</Text></TouchableOpacity>,
-    headerRight: <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}
+    headerRight: <TouchableOpacity onPress={this.signOutUser}
       style={{ margin: 10, padding: 10 }}>
       <Text>My Profile</Text></TouchableOpacity>
   });
@@ -110,6 +110,15 @@ export default class LoggedIn extends React.Component {
       }
     }
     return {dataBlob, sectionIds, rowIds};
+  }
+
+  signOutUser = async() => {
+    try {
+        await firebase.auth().signOut();
+        navigate('Home');
+    } catch (error) {
+        console.log(error);
+    }
   }
 
   render() {

@@ -28,7 +28,7 @@ export default class OtherProfileCmp extends React.Component {
 		     <Button
 		       style = {{flex: 1, color: 'red'}}
 			     title = 'Block'
-			     onPress = {null}
+			     onPress = {() => console.log("Block\n")}
 		      />
         </View>
       </View>

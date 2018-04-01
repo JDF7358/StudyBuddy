@@ -39,39 +39,12 @@ const Login = t.struct({
 });
 
 export default class LoginScreen extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true,
-    };
-  }
+
   static navigationOptions = {
     title: 'Login',
   };
 
-  componentDidMount() {
-    this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
-      this.setState({
-        loading: false
-      });
-      if (user) {
-        AuthObject.getUser(user.email).then((ourUser) => {
-          this.props.navigation.navigate('LoggedIn', {user: ourUser});
-        });
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    this.authSubscription();
-  }
-
-  static propTypes = {
-    navigation: PropTypes.object.isRequired,
-  };
-  
   render() {
-    if (this.state.loading) return null;
     return (
       <KeyboardAwareScrollView contentContainerStyle={Styles.LScontainer}>
         <Text style={Styles.LSheader}>Welcome Back!</Text>
