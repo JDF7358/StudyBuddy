@@ -4,11 +4,7 @@ import { GiftedChat } from 'react-native-gifted-chat';
 export default class ChatScreen extends React.Component {
 	
   static navigationOptions = {
-<<<<<<< HEAD
     title: 'Kelly Chen',
-=======
-    title: 'Chat',
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
   };
   
   state = {
@@ -20,11 +16,7 @@ export default class ChatScreen extends React.Component {
       messages: [
         {
           _id: 1,
-<<<<<<< HEAD
           text: 'Hey. Where do you want to meet up and study?',
-=======
-          text: 'Hello developer',
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
           createdAt: new Date(),
           user: {
             _id: 2,

@@ -22,15 +22,9 @@ const styles = StyleSheet.create({
 
 export const Row = (props) => (
   <View>
-<<<<<<< HEAD
     <TouchableOpacity onPress={() => props.navigation.navigate('Chat')}>
       <View style={Styles.Rcontainer}>
         <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')}>
-=======
-    <TouchableOpacity onPress={this.goToChat}>
-      <View style={Styles.Rcontainer}>
-        <TouchableOpacity onPress={this.goToOtherProf}>
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
           <Image source={require('../img/defaultprofilepic.png')} style={Styles.Rphoto} />
 	      </TouchableOpacity>
         <Text style={Styles.Rtext}>
@@ -41,11 +35,6 @@ export const Row = (props) => (
   </View>
 );
 
-<<<<<<< HEAD
-=======
-export var other = null;
-
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
 export default class LoggedIn extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
@@ -79,21 +68,6 @@ export default class LoggedIn extends React.Component {
     };
   }
 
-<<<<<<< HEAD
-=======
-  goToChat = async() => {
-    const {navigate} = this.props.navigation;
-    navigate('Chat');
-  }
-
-  goToOtherProf = async() => {
-    const {navigate} = this.props.navigation;
-    const value = data.getValue();
-    other = await AuthObject.getUser(value.email);
-    navigate('OtherProfile');
-  }
-
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
   formatData(data) {
     //Sort alphabetically
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -144,27 +118,10 @@ export default class LoggedIn extends React.Component {
       <ListView
         style={styles.container}
         dataSource={this.state.dataSource}
-<<<<<<< HEAD
         renderRow={(data) => <Row {...data} navigation={this.props.navigation}/>}
         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
         renderHeader={() => <Header />}
         renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />} />
-=======
-        renderRow={(data) => <Row {...data} />}
-        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-        renderHeader={() => <Header />}
-        renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />} />
-      // <View style={Styles.LIcontainer}>
-      // <Button
-      // 	onPress={() => {
-      // 		const { goBack } = this.props.navigation;
-      // 		alert("Logged out!");
-      // 		goBack();
-      // 	}}
-      // 	title="Logout"/>
-      // </View>
-      //</View>
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
     );
   }
 }

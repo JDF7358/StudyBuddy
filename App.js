@@ -4,8 +4,6 @@ import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/pages/HomeScreen.js';
 import LoginScreen from './src/pages/LoginScreen.js';
 import RegisterScreen from './src/pages/RegisterScreen.js';
-import AccountCreatedScreen from './src/pages/AccountCreatedScreen.js';
-import MyProfileScreen from './src/pages/MyProfileScreen.js';
 import LoggedIn from './src/pages/LoggedIn.js';
 import ChatScreen from './src/pages/ChatScreen.js';
 import ProfileScreen from './src/pages/ProfileScreen.js';
@@ -29,8 +27,6 @@ export const StudyBuddy = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   Register: { screen: RegisterScreen },
-  AccountCreated: { screen: AccountCreatedScreen },
-  MyProfile: { screen: MyProfileScreen },
   LoggedIn: { screen: LoggedIn },
   Chat: { screen: ChatScreen },
   MyProfile: { screen: ProfileScreen },
