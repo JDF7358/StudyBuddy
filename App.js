@@ -4,10 +4,8 @@ import { StackNavigator } from 'react-navigation';
 import HomeScreen from './src/pages/HomeScreen.js';
 import LoginScreen from './src/pages/LoginScreen.js';
 import RegisterScreen from './src/pages/RegisterScreen.js';
-<<<<<<< HEAD
 import AccountCreatedScreen from './src/pages/AccountCreatedScreen.js';
 import MyProfileScreen from './src/pages/MyProfileScreen.js';
-=======
 import LoggedIn from './src/pages/LoggedIn.js';
 import ChatScreen from './src/pages/ChatScreen.js';
 import ProfileScreen from './src/pages/ProfileScreen.js';
@@ -26,23 +24,19 @@ const config = {
   messagingSenderId: '1037332241375'
 };
 firebase.initializeApp(config);
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
 
 export const StudyBuddy = StackNavigator({
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   Register: { screen: RegisterScreen },
-<<<<<<< HEAD
   AccountCreated: { screen: AccountCreatedScreen },
-  MyProfile: { screen: MyProfileScreen }
-=======
+  MyProfile: { screen: MyProfileScreen },
   LoggedIn: { screen: LoggedIn },
   Chat: { screen: ChatScreen },
   MyProfile: { screen: ProfileScreen },
   OtherProfile: { screen: OthersProfileScreen },
   EditProfile: { screen: EditProfileScreen },
   ChoosePicture: { screen: GalleryCmp }
->>>>>>> 4146ad4f3d970adc3b4720317ec5504b1af7ef95
 });
 
 export default class App extends React.Component {
