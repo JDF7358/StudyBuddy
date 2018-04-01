@@ -53,8 +53,6 @@ export default class App extends React.Component {
         AuthObject.getUser(user.email).then((ourUser) => {
           this.props.navigation.navigate('LoggedIn', {user: ourUser});
         });
-      } else {
-        this.props.navigation.navigate('Home');
       }
     });
   }
