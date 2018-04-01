@@ -42,12 +42,8 @@ export default class LoggedIn extends React.Component {
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
     title: 'My Matches',
     headerLeft: <TouchableOpacity onPress={() => {
-      try {
-        await firebase.auth().signOut();
+        firebase.auth().signOut();
         navigation.navigate('Home');
-      } catch (error) {
-        console.log(error);
-      }
     }}
       style={{ margin: 10, padding: 10 }}>
       <Text>Logout</Text></TouchableOpacity>,
