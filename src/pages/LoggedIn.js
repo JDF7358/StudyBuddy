@@ -41,7 +41,7 @@ export default class LoggedIn extends React.Component {
   static navigationOptions = ({navigation}) => ({
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
     title: 'My Matches',
-    headerLeft: <TouchableOpacity onPress={this.signOutUser}
+    headerLeft: <TouchableOpacity onPress={() => this.signOutUser}
       style={{ margin: 10, padding: 10 }}>
       <Text>Logout</Text></TouchableOpacity>,
     headerRight: <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}
