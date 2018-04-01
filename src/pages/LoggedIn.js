@@ -115,7 +115,7 @@ export default class LoggedIn extends React.Component {
 
   signOutUser = async() => {
     try {
-        await firebase.auth().signOut();
+        user = await firebase.auth().signOut();
         navigate('Home');
     } catch (error) {
         console.log(error);
