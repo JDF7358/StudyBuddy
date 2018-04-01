@@ -6,6 +6,7 @@ import Header from '../components/Header.js';
 import SectionHeader from '../components/SectionHeader.js';
 import Styles from '../components/Styles.js';
 import { AuthObject } from '../model/Auth.js';
+import firebase from 'firebase';
 
 const styles = StyleSheet.create({
   container: {

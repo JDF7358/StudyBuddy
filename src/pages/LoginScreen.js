@@ -3,6 +3,7 @@ import { Text, Button } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AuthObject } from '../model/Auth.js';
 import t from 'tcomb-form-native';
+import PropTypes from 'prop-types';
 import firebase from 'firebase';
 
 import Styles from '../components/Styles.js';
@@ -38,12 +39,39 @@ const Login = t.struct({
 });
 
 export default class LoginScreen extends React.Component {
-
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+    };
+  }
   static navigationOptions = {
     title: 'Login',
   };
 
+  componentDidMount() {
+    this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
+      this.setState({
+        loading: false
+      });
+      if (user) {
+        AuthObject.getUser(user.email).then((ourUser) => {
+          this.props.navigation.navigate('LoggedIn', {user: ourUser});
+        });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.authSubscription();
+  }
+
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+  };
+  
   render() {
+    if (this.state.loading) return null;
     return (
       <KeyboardAwareScrollView contentContainerStyle={Styles.LScontainer}>
         <Text style={Styles.LSheader}>Welcome Back!</Text>
@@ -64,11 +92,6 @@ export default class LoginScreen extends React.Component {
     const value = this._login.getValue();
     if (value) {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-        .then(
-          AuthObject.getUser(value.email).then((ourUser) => {
-            this.props.navigation.navigate('LoggedIn', {user: ourUser});
-          })
-        )
         .catch((error) => {
           if (error.code == 'auth/user-not-found') {
             alert('There is no user associated with that email address.');

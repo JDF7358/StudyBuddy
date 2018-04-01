@@ -1,7 +1,5 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import { AuthObject } from './src/model/Auth.js';
-import PropTypes from 'prop-types';
 
 import HomeScreen from './src/pages/HomeScreen.js';
 import LoginScreen from './src/pages/LoginScreen.js';
@@ -38,29 +36,6 @@ export const StudyBuddy = StackNavigator({
 });
 
 export default class App extends React.Component {
-
-  static navigationOptions = {
-    header: null
-  };
-  
-  static propTypes = {
-    navigation: PropTypes.object.isRequired
-  }
-
-  componentDidMount() {
-    this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        AuthObject.getUser(user.email).then((ourUser) => {
-          this.props.navigation.navigate('LoggedIn', {user: ourUser});
-        });
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    this.authSubscription();
-  }
-
   render() {
     return <StudyBuddy />;
   }
