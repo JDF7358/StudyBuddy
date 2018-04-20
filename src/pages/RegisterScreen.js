@@ -4,7 +4,7 @@ import { AuthObject, User } from '../model/Auth.js';
 import t from 'tcomb-form-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import PropTypes from 'prop-types';
-import NavigationActions from 'react-navigation';
+import firebase from 'firebase';
 
 import Styles from '../components/Styles.js';
 
@@ -51,11 +51,25 @@ export default class RegisterScreen extends React.Component {
   };
 
   static propTypes = {
-    navigation: PropTypes.instanceOf(NavigationActions)
+    navigation: PropTypes.object.isRequired,
   }
 
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        AuthObject.getUser(user.email).then((ourUser) => {
+          this.props.navigation.navigate('LoggedIn', {user: ourUser});
+        });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.authSubscription();
   }
   
   render() {
@@ -78,17 +92,18 @@ export default class RegisterScreen extends React.Component {
   }
   register = async () => {
     const value = this._register.getValue();
-    const { goBack } = this.props.navigation;
     if (value) {
-      console.log(value);
       if (value.password == value.passwordAgain) {
-        if (await AuthObject.getUser(value.email) == null) {
-          AuthObject.createAccount(value);
-          alert('Account created!');
-          goBack();
-        } else {
-          alert('An account with that email already exists.');
-        }
+        firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+          .error((error) => {
+            console.log(error);
+            if (error.code == 'auth/email-already-in-use') {
+              alert('An account with that email already exists.');
+            }
+          }).then(() => {
+            AuthObject.createAccount(value);
+            alert('Account created!');
+          });
       } else {
         alert('Please make sure your passwords match.');
       }

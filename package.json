@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "expo": "^24.0.0",
-    "firebase": "^4.10.0",
+    "firebase": "^4.12.1",
     "jshint": "^2.9.5",
     "npm": "^4.6.1",
     "prop-types": "^15.6.0",
