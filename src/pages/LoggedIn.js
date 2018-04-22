@@ -6,6 +6,9 @@ import Header from '../components/Header.js';
 import SectionHeader from '../components/SectionHeader.js';
 import Styles from '../components/Styles.js';
 import { AuthObject } from '../model/Auth.js';
+import PropTypes from 'prop-types';
+import firebase from 'firebase';
+import { userInfo } from '../pages/HomeScreen.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -35,17 +38,18 @@ export const Row = (props) => (
   </View>
 );
 
-export var other = null;
-
 export default class LoggedIn extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
     title: 'My Matches',
-    headerLeft: <TouchableOpacity onPress={() => navigation.navigate('Home')}
+    headerLeft: <TouchableOpacity onPress={() => {
+      firebase.auth().signOut();
+      navigation.navigate('Home');
+    }}
       style={{ margin: 10, padding: 10 }}>
       <Text>Logout</Text></TouchableOpacity>,
-    headerRight: <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}
+    headerRight: <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}  
       style={{ margin: 10, padding: 10 }}>
       <Text>My Profile</Text></TouchableOpacity>
   });
@@ -68,18 +72,6 @@ export default class LoggedIn extends React.Component {
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds)
     };
-  }
-
-  goToChat = async() => {
-    const {navigate} = this.props.navigation;
-    navigate('Chat');
-  }
-
-  goToOtherProf = async() => {
-    const {navigate} = this.props.navigation;
-    const value = data.getValue();
-    other = await AuthObject.getUser(value.email);
-    navigate('OtherProfile');
   }
 
   formatData(data) {
