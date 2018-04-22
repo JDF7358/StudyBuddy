@@ -56,7 +56,8 @@ export default class LoginScreen extends React.Component {
       });
       if (user) {
         AuthObject.getUser(user.email).then((ourUser) => {
-          this.props.navigation.navigate('LoggedIn', {user: ourUser});
+          //add my listener stuff here
+          this.props.navigation.navigate('LoggedIn', {user: ourUser}); //this gets nested inside my function
         });
       }
     });

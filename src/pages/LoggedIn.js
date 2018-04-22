@@ -37,6 +37,20 @@ export const Row = (props) => (
 
 export var other = null;
 
+var request = new XMLHttpRequest();
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+  }
+};
+
+request.open('GET', 'https://private-6b84d-studybuddy.apiary-mock.com/users');
+
+request.send();
+
 export default class LoggedIn extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
