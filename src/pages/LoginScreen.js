@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import firebase from 'firebase';
 
 import Styles from '../components/Styles.js';
+import { userInfo } from '../pages/HomeScreen.js';
 
 const Form = t.form.Form;
 

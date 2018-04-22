@@ -6,6 +6,7 @@ import CameraRollPicker from 'react-native-camera-roll-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import Styles from '../components/Styles.js';
+import { userInfo } from '../pages/HomeScreen.js';
 
 const Form = t.form.Form;
 
@@ -35,9 +36,9 @@ export default class EditProfileScreen extends React.Component {
     super(props);
     
     this.state = {
-      fname: user.name,
-      lname: user.lastName,
-      bio: user.bio
+      fname: userInfo.name,
+      lname: userInfo.lastName,
+      bio: userInfo.bio
     };
   }
 
@@ -98,13 +99,13 @@ export default class EditProfileScreen extends React.Component {
     const value = this._saveChanges.getValue();
     if (value) {
       console.log(value);
-      user.name = this.state.fname;
-      user.lastName = this.state.lname;
-      user.bio = this.state.bio;
-      user.major = value.major;
-      user.year = value.year;
-      AuthObject.updateUser(user.email, user);
-      console.log(user);
+      userInfo.name = this.state.fname;
+      userInfo.lastName = this.state.lname;
+      userInfo.bio = this.state.bio;
+      userInfo.major = value.major;
+      userInfo.year = value.year;
+      AuthObject.updateUser(userInfo.email, userInfo);
+      console.log(userInfo);
       navigate('MyProfile');
     }
   }

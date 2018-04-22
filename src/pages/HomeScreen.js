@@ -6,6 +6,8 @@ import firebase from 'firebase';
 
 import Styles from '../components/Styles.js';
 
+export var userInfo;
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -19,6 +21,7 @@ export default class HomeScreen extends React.Component {
     this.authSubscription = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         AuthObject.getUser(user.email).then((ourUser) => {
+          userInfo = AuthObject.getUser(user.email);
           this.props.navigation.navigate('LoggedIn', {user: ourUser});
         });
       }

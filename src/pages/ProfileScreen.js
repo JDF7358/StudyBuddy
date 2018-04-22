@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 import Styles from '../components/Styles.js';
-import ProfileCmp from '../components/ProfileCmp.js';
+import { userInfo } from '../pages/HomeScreen.js';
 
 export default class ProfileScreen extends React.Component {
   
@@ -20,7 +20,26 @@ export default class ProfileScreen extends React.Component {
   render() {
     return (
       <View style={Styles.PScontainer}>
-        <ProfileCmp />
+        <View style={Styles.PCcontainer}>
+        <View style={Styles.bgImgPos}>
+          <Image style={Styles.profileBG} source={require('../img/headerbg.jpeg')} />
+        </View>
+        <View style={Styles.PCheader}>
+          <View style={Styles.profilepicWrap}>
+            <Image style={Styles.profilepic} source={require('../img/defaultprofilepic.png')} />
+          </View>
+
+          <Text style={Styles.name}>{userInfo.name} {userInfo.lastName}</Text>
+          <Text style={Styles.major_year}>{userInfo.major}</Text>
+          <Text style={Styles.major_year}>{userInfo.year}</Text>
+          <Text />
+          <Text style={Styles.bio}>Bio:</Text>
+          <Text style={Styles.cic}>{userInfo.bio}</Text>
+          <Text />
+          <Text style={Styles.bio}>Classes in Common:</Text>
+          <Text style={Styles.cic}>CS 3312, LMC 3431, CS 2200, CS 4400</Text>
+        </View>
+      </View>
       </View>
     );  
   }
