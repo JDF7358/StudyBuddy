@@ -140,7 +140,7 @@ export default class LoggedIn extends React.Component {
       <ListView
         style={styles.container}
         dataSource={this.state.dataSource}
-        renderRow={(data) => <Row {...data} />}
+        renderRow={(data) => <Row {...data} navigation={this.props.navigation}/>}
         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
         renderHeader={() => <Header />}
         renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />} />
