@@ -16,7 +16,7 @@ export default class ChatScreen extends React.Component {
       messages: [
         {
           _id: 1,
-          text: 'Hello developer',
+          text: 'Hello! How are you doing today?',
           createdAt: new Date(),
           user: {
             _id: 2,
