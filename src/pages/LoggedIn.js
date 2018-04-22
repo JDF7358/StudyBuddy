@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
 
 export const Row = (props) => (
   <View>
-    <TouchableOpacity onPress={this.goToChat}>
+    <TouchableOpacity onPress={() => props.navigation.navigate('Chat')}>
       <View style={Styles.Rcontainer}>
-        <TouchableOpacity onPress={this.goToOtherProf}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')}>
           <Image source={require('../img/defaultprofilepic.png')} style={Styles.Rphoto} />
 	      </TouchableOpacity>
         <Text style={Styles.Rtext}>
@@ -144,16 +144,6 @@ export default class LoggedIn extends React.Component {
         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
         renderHeader={() => <Header />}
         renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />} />
-      // <View style={Styles.LIcontainer}>
-      // <Button
-      // 	onPress={() => {
-      // 		const { goBack } = this.props.navigation;
-      // 		alert("Logged out!");
-      // 		goBack();
-      // 	}}
-      // 	title="Logout"/>
-      // </View>
-      //</View>
     );
   }
 }
