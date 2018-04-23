@@ -54,6 +54,7 @@ export const Row = (props) => (
   </View>
 );
 
+/*
 export var other = null;
 
 var request = new XMLHttpRequest();
@@ -69,6 +70,7 @@ request.onreadystatechange = function () {
 request.open('GET', 'https://private-6b84d-studybuddy.apiary-mock.com/users');
 
 request.send();
+*/
 
 export default class LoggedIn extends React.Component {
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ListView, TouchableOpacity } from 'react-native';
+import PopupDialog from 'react-native-popup-dialog';
 
 import matchdata from '../components/matchdata.js';
 import Header from '../components/Header.js';
@@ -25,14 +26,19 @@ const styles = StyleSheet.create({
 
 export const Row = (props) => (
   <View>
+  	<TouchableOpacity onPress={() => { this.popupDialog.show(); }}>
+  	<PopupDialog ref={(popupDialog) => { this.popupDialog = popupDialog; }}>
+    <View>
+      <Text>{`${props.major}"\n"${props.year}"\n"$(props.courses}`}</Text>
+    </View>
+  </PopupDialog>
       <View style={Styles.Matchescontainer}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')}>
           <Image source={require('../img/defaultprofilepic.png')} style={Styles.Rphoto} />
-	      </TouchableOpacity>
         <Text style={Styles.Rtext}>
           {`${props.name.first} ${props.name.last}`}
         </Text>
       </View>
+    </TouchableOpacity>
   </View>
 );
 
@@ -49,7 +55,7 @@ export default class BuddiesScreen extends React.Component {
       <Text>Logout</Text></TouchableOpacity>,
     headerRight: <TouchableOpacity onPress={() => navigation.navigate('LoggedIn')}  
       style={{ margin: 10, padding: 10 }}>
-      <Text>My Matches</Text></TouchableOpacity>
+      <Text>My Buddies</Text></TouchableOpacity>
   });
 
   constructor(props) {

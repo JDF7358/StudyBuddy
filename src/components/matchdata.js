@@ -8,20 +8,22 @@ export default [
       'email': 'gpb@example.com',
       'password': 'george',
     },
-    'major': 'Computer Science',
+    'major': 'Mechanical Engineering',
     'year': 'Junior',
+    'courses': 'ME 2110, ISYE 3770, PHYS 2122, MATH 2552',
   },
   {
     'name': {
       'first': 'Bud',
-      'last': 'peterson'
+      'last': 'Peterson'
     },
     'login': {
       'email': 'bud@example.com',
       'password': 'bud',
     },
     'major': 'Computer Science',
-    'year': 'Junior',
+    'year': 'Senior',
+    'courses': 'CS 4641, MATH 3012, CS 4400, MATH 2552'
   },
   {
     'name': {
@@ -32,8 +34,9 @@ export default [
       'email': 'geazy@example.com',
       'password': 'geazy',
     },
-    'major': 'Computer Science',
-    'year': 'Junior',
+    'major': 'Chemical Engineering',
+    'year': 'Freshman',
+    'courses': 'CS 1371, PHYS 2112, MATH 1553, ENGL 1101',
   },
   {
     'name': {
@@ -46,6 +49,7 @@ export default [
     },
     'major': 'Computer Science',
     'year': 'Junior',
+    'courses': 'CS 4641, MATH 3012, CS 4400, MATH 2552'
   },
   {
     'name': {
@@ -57,6 +61,7 @@ export default [
       'password': 'rosa',
     },
     'major': 'Computer Science',
-    'year': 'Junior',
+    'year': 'Sophomore',
+    'courses': 'CS 1332, MATH 3012, CS 2110, CS 2340'
   },
 ];
