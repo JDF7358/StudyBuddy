@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ListView, TouchableOpacity, Button } from 'react-native';
 
-import buddydata from '../components/buddydata.js';
+import buddydata1 from '../components/buddydata1.js';
 import Header from '../components/Header.js';
 import SectionHeader from '../components/SectionHeader.js';
 import Styles from '../components/Styles.js';
@@ -69,7 +69,7 @@ request.open('GET', 'https://private-6b84d-studybuddy.apiary-mock.com/users');
 request.send();
 
 
-export default class LoggedIn extends React.Component {
+export default class LoggedIn1 extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
@@ -95,7 +95,7 @@ export default class LoggedIn extends React.Component {
       getRowData
     });
 
-    const { dataBlob, sectionIds, rowIds } = this.formatData(buddydata);
+    const { dataBlob, sectionIds, rowIds } = this.formatData(buddydata1);
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds)

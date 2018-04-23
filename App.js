@@ -5,12 +5,14 @@ import HomeScreen from './src/pages/HomeScreen.js';
 import LoginScreen from './src/pages/LoginScreen.js';
 import RegisterScreen from './src/pages/RegisterScreen.js';
 import LoggedIn from './src/pages/LoggedIn.js';
+import LoggedIn1 from './src/pages/LoggedIn1.js';
 import ChatScreen from './src/pages/ChatScreen.js';
 import ProfileScreen from './src/pages/ProfileScreen.js';
 import EditProfileScreen from './src/pages/EditProfileScreen.js';
 import OthersProfileScreen from './src/pages/OthersProfileScreen.js';
 import GalleryCmp from './src/components/GalleryCmp.js';
 import BuddiesScreen from './src/pages/BuddiesScreen.js';
+import ConfirmBuddy from './src/pages/ConfirmBuddy.js';
 
 import * as firebase from 'firebase';
 
@@ -34,7 +36,9 @@ export const StudyBuddy = StackNavigator({
   OtherProfile: { screen: OthersProfileScreen },
   EditProfile: { screen: EditProfileScreen },
   ChoosePicture: { screen: GalleryCmp },
-  Buddies: { screen: BuddiesScreen}
+  Buddies: { screen: BuddiesScreen},
+  Confirm: {screen: ConfirmBuddy},
+  LoggedIn1: { screen: LoggedIn1 },
 });
 
 export default class App extends React.Component {

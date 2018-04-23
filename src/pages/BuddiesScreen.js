@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 export const Row = (props) => (
   <View>
-  	<TouchableOpacity onPress={() => { this.popupDialog.show(); }}>
+  	<TouchableOpacity onPress={() => props.navigation.navigate('Confirm')}>
   	<PopupDialog ref={(popupDialog) => { this.popupDialog = popupDialog; }}>
     <View>
       <Text>{`${props.major}"\n"${props.year}"\n"$(props.courses}`}</Text>
