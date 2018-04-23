@@ -191,6 +191,20 @@ module.exports = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20,
-  }
+  },
+  Budiesbutton: {
+    borderColor: '#8E8E8E',
+    borderWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+  },
+  Matchescontainer: { //Row component
+    flex: 1,
+    padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFECB3',
+  },
 
 });

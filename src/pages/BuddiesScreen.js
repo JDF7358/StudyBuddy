@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ListView, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, ListView, TouchableOpacity } from 'react-native';
 
-import buddydata from '../components/buddydata.js';
+import matchdata from '../components/matchdata.js';
 import Header from '../components/Header.js';
 import SectionHeader from '../components/SectionHeader.js';
 import Styles from '../components/Styles.js';
@@ -9,7 +9,6 @@ import { AuthObject } from '../model/Auth.js';
 import PropTypes from 'prop-types';
 import firebase from 'firebase';
 import { userInfo } from '../pages/HomeScreen.js';
-import SectionButton from '../components/SectionButton.js';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,27 +21,11 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
     backgroundColor: '#8E8E8E',
   },
-  button: {
-    borderColor: '#8E8E8E',
-    borderWidth: StyleSheet.hairlineWidth,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-  },
 });
-/*
-export const SectionButton = (props) => (
-  <View style={styles.container}>
-    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('Buddies')}>
-      <Text style={styles.text}>My Matches</Text>
-    </TouchableOpacity>
-  </View>
-); */
 
 export const Row = (props) => (
   <View>
-    <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-      <View style={Styles.Rcontainer}>
+      <View style={Styles.Matchescontainer}>
         <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')}>
           <Image source={require('../img/defaultprofilepic.png')} style={Styles.Rphoto} />
 	      </TouchableOpacity>
@@ -50,37 +33,23 @@ export const Row = (props) => (
           {`${props.name.first} ${props.name.last}`}
         </Text>
       </View>
-    </TouchableOpacity>
   </View>
 );
 
-export var other = null;
-
-var request = new XMLHttpRequest();
-
-request.onreadystatechange = function () {
-  if (this.readyState === 4) {
-      console.log('Status:', this.status);
-      console.log('Headers:', this.getAllResponseHeaders());
-      console.log('Body:', this.responseText);
-  }
-};
-
-request.open('GET', 'https://private-6b84d-studybuddy.apiary-mock.com/users');
-
-request.send();
-
-export default class LoggedIn extends React.Component {
+export default class BuddiesScreen extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
     headerTitleStyle: { textAlign: 'center', alignSelf: 'center' },
-    title: 'My Buddies',
-    headerLeft: <TouchableOpacity onPress={() => navigation.navigate('Buddies')}
+    title: 'My Matches',
+        headerLeft: <TouchableOpacity onPress={() => {
+      firebase.auth().signOut();
+      navigation.navigate('Home');
+    }}
+    style={{ margin: 10, padding: 10 }}>
+      <Text>Logout</Text></TouchableOpacity>,
+    headerRight: <TouchableOpacity onPress={() => navigation.navigate('LoggedIn')}  
       style={{ margin: 10, padding: 10 }}>
-      <Text>My Matches</Text></TouchableOpacity>,
-    headerRight: <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}  
-      style={{ margin: 10, padding: 10 }}>
-      <Text>My Profile</Text></TouchableOpacity>
+      <Text>My Matches</Text></TouchableOpacity>
   });
 
   constructor(props) {
@@ -96,7 +65,7 @@ export default class LoggedIn extends React.Component {
       getRowData
     });
 
-    const { dataBlob, sectionIds, rowIds } = this.formatData(buddydata);
+    const { dataBlob, sectionIds, rowIds } = this.formatData(matchdata);
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIds, rowIds)
@@ -160,7 +129,7 @@ export default class LoggedIn extends React.Component {
         dataSource={this.state.dataSource}
         renderRow={(data) => <Row {...data} navigation={this.props.navigation}/>}
         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-        renderHeader={() => <Header />}
+        //renderHeader={() => <Header />}
         renderSectionHeader={(sectionData) => <SectionHeader {...sectionData} />}
         /*renderFooter={() => <SectionButton/>} *//>
     //</View>
