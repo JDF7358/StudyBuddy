@@ -41,9 +41,9 @@ export const SectionButton = (props) => (
 
 export const Row = (props) => (
   <View>
-    <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
+    <TouchableOpacity onPress={() => props.navigation.navigate('Chat')}>
       <View style={Styles.Rcontainer}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile', {props: props})}>
           <Image source={require('../img/defaultprofilepic.png')} style={Styles.Rphoto} />
 	      </TouchableOpacity>
         <Text style={Styles.Rtext}>
@@ -53,9 +53,6 @@ export const Row = (props) => (
     </TouchableOpacity>
   </View>
 );
-
-/*
-export var other = null;
 
 var request = new XMLHttpRequest();
 

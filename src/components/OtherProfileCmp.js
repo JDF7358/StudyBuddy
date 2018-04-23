@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View, Image, Button} from 'react-native';
 
-import { other } from '../pages/LoggedIn.js';
 import Styles from '../components/Styles.js';
 
 export default class OtherProfileCmp extends React.Component {
@@ -15,12 +14,12 @@ export default class OtherProfileCmp extends React.Component {
           <View style = {Styles.profilepicWrap}>
             <Image style = {Styles.profilepic} source = {require('../img/defaultprofilepic.png')} />
           </View>
-          <Text style = {Styles.name}>{other.name} {other.lastName}</Text>
-          <Text style = {Styles.major_year}>{other.major}</Text>
-          <Text style = {Styles.major_year}>{other.year}</Text>
+          <Text style = {Styles.name}>{this.other.name.first} {this.other.name.last}</Text>
+          <Text style = {Styles.major_year}>{this.other.major}</Text>
+          <Text style = {Styles.major_year}>{this.other.year}</Text>
           <Text />
           <Text style = {Styles.bio}>Bio:</Text>
-          <Text style = {Styles.cic}>{other.bio}</Text>
+          <Text style = {Styles.cic}>{this.other.bio}</Text>
           <Text />
           <Text style = {Styles.bio}>Classes in Common:</Text>
           <Text style = {Styles.cic}>CS 3312, LMC 3431, CS 2200, CS 4400</Text>
