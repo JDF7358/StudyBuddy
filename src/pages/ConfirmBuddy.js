@@ -57,9 +57,6 @@ export default class ConfirmBudddy extends React.Component {
     	<Text style={styles.headliner}>Major: Mechanical Engineering</Text>
     	<Text style={styles.headliner}>Year: Junior</Text>
     	<Text style={styles.headliner}>Common Courses : ME 2110, ISYE 3770, PHYS 2122, MATH 2552</Text>
-    	<TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('LoggedIn')}>
-    		<Text style={styles.yes}>Yes</Text>
-    	</TouchableOpacity>
     </View>
     );
   }
