@@ -49,7 +49,7 @@ export default class BuddiesScreen extends React.Component {
       <Text>Logout</Text></TouchableOpacity>,
     headerRight: <TouchableOpacity onPress={() => navigation.navigate('LoggedIn')}  
       style={{ margin: 10, padding: 10 }}>
-      <Text>My Matches</Text></TouchableOpacity>
+      <Text>My Buddies</Text></TouchableOpacity>
   });
 
   constructor(props) {
